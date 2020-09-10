@@ -1,0 +1,70 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCT Circuit Solver</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="top-bar">
+		<div class="top-bar-left">
+			<ul class="menu">
+				<li class="menu-text">RCT Circuit Solver</li>
+				<!--<li>
+					<a href="#">One</a>
+					<ul class="menu vertical">
+						<li><a href="#">One</a></li>
+						<li><a href="#">Two</a></li>
+						<li><a href="#">Three</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Two</a></li>
+				<li><a href="#">Three</a></li>-->
+				<li><select name="circuit" id="circuit">
+					<option value="">Select a circuit type to solve...</option>
+                    <option value="2">Coulomb/Ampere Relation</option>
+                    <!--<option value="3">Coulomb*Volt/Joule Relation</option>-->
+					<!--<option value="1">Simple Series Ohm's Law</option>-->
+				</select></li>
+				<li><button type="button" class="button" onclick="generate()">Generate a Circuit</button></li>
+			</ul>
+		</div>
+		<div class="top-bar-right">
+			<ul class="menu">
+				<li><button type="button" class="success button" onclick="check();" id="check_but">Check Answers</button></li>
+				<li><button type="button" class="alert button" onclick="show();">Show Answers</button></li>
+			</ul>
+		</div>
+	</div>
+	
+    <input style="display:none;" id="cir-value" value="" disabled type="number">
+	<div class="grid-container" id="main-grid">
+		
+		<div class="grid-x">
+			<div class="small-12 cell">
+				<ol>
+					<li>Select a type of circuit to solve for from the list above.</li>
+					<li>Click the generate a circuit button to get a circuit to solve for. You can hit this button as much as you wish to generate different variants.</li>
+					<li>Solve for the missing values and enter your answers into the spaces provided.</li>
+					<li>Click the check answers button to make incorrect answers highlight in red and correct answers highlight in green.</li>
+					<li>If you get stuck you can click show anwsers to see what the correct answers are. This will require you to generate a new circuit before you can continue to work.</li>
+					<li>Repeat these steps to continue to practice.</li>
+					<li>...</li>
+					<li>Profit</li>
+				</ol>
+                <p><strong>Make sure you round to the correct significant digit and round-to-even.</strong></p>
+			</div>
+		</div>
+        </div>
+	  
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

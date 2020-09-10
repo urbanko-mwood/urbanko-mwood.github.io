@@ -1,0 +1,43 @@
+.grid-container {
+	max-width: 1024px !important;
+	min-width: 1024px !important;
+}
+
+.top-bar {
+	min-width: 1024px !important;
+}
+
+.input-group > .input-group-button > select {
+	margin-bottom: 0 !important;
+	height: 1.75rem !important;
+}
+
+.input-group > input.input-group-field {
+	padding: 2px !important;
+	height: 1.75rem !important;
+	text-align: right !important;
+}
+
+.input-group {
+	border-color:rgb(230, 230, 230); 
+	border-width:2px; 
+	border-style:solid;
+}
+
+.input-group.success {
+	border-color:rgb(58, 219, 118); 
+	border-width:2px; 
+	border-style:solid;
+}
+
+.input-group.alert {
+	border-color:#cc4b37; 
+	border-width:2px; 
+	border-style:solid;
+}
+
+.input-group.info {
+	border-color:#1779ba; 
+	border-width:2px; 
+	border-style:solid;
+}
