@@ -31,28 +31,58 @@ function generate() {
                 default:
                     
             }
+            break;
         case "3":
             document.getElementById('cir-value').value = 3;
             var varation = randomWholeNumber(1, 3);
             switch (varation) {
                 case 1:
-                    //c = a * s
+                    //j = c * v
                     document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir3-var" value="1" disabled type="number"/> <p>If we had a charge of <span id="cir3-c"></span>C at <span id="cir3-v"></span> volts, how much energy was utilized?</p><input style="display: none;" id="cir3-c-num" value="" disabled type="number"/> <input style="display: none;" id="cir3-v-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir3-j"> <span class="input-group-label">Energy</span> <input class="input-group-field" type="number" id="cir3-j-num"/> <div class="input-group-button"> <select id="cir3-j-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">J</span> </div></div></div></div></div>';
                     generate_cir[document.getElementById('cir-value').value]();
                     break;
                 case 2:
-                    //a = c/s
+                    //c = j/v
                     document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir3-var" value="2" disabled type="number"/> <p>If we used <span id="cir3-j"></span> joules of energy with a differential of <span id="cir3-v"></span> volts, what was the charge?</p><input style="display: none;" id="cir3-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir3-v-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir3-c"> <span class="input-group-label">Charge</span> <input class="input-group-field" type="number" id="cir3-c-num"/> <div class="input-group-button"> <select id="cir3-c-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">C</span> </div></div></div></div></div>';
                     generate_cir[document.getElementById('cir-value').value]();
                     break;
                 case 3:
-                    //s = c/a
+                    //v = j/c
                     document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir3-var" value="3" disabled type="number"/> <p>If we used <span id="cir3-j"></span> joules of energy with a charge of <span id="cir3-c"></span>C, what EMF was applied?</p><input style="display: none;" id="cir3-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir3-c-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir3-v"> <span class="input-group-label">EMF</span> <input class="input-group-field" type="number" id="cir3-v-num"/> <div class="input-group-button"> <select id="cir3-v-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">V</span> </div></div></div></div></div>';
                     generate_cir[document.getElementById('cir-value').value]();
                     break;
                 default:
                     
             }
+            break;
+        case "4":
+            document.getElementById('cir-value').value = 4;
+            var varation = randomWholeNumber(1, 4);
+            switch (varation) {
+                case 1:
+                    //a s v = j
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Integrated Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir4-var" value="1" disabled type="number"/> <p>How many Joules of energy do we have with <span id="cir4-v"></span> volts, at <span id="cir4-a"></span> amps, over <span id="cir4-s"></span> seconds?</p><input style="display: none;" id="cir4-v-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-a-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-s-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir4-j"> <span class="input-group-label">Energy</span> <input class="input-group-field" type="number" id="cir4-j-num"/> <div class="input-group-button"> <select id="cir4-j-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">J</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 2:
+                    //j v s = a
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Integrated Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir4-var" value="2" disabled type="number"/> <p>How many Amps did we have if we measured <span id="cir4-j"></span> joules, at <span id="cir4-v"></span> volts, over <span id="cir4-s"></span> seconds?</p><input style="display: none;" id="cir4-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-v-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-s-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir4-a"> <span class="input-group-label">Current</span> <input class="input-group-field" type="number" id="cir4-a-num"/> <div class="input-group-button"> <select id="cir4-a-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">A</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 3:
+                    //j v a = s
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Integrated Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir4-var" value="3" disabled type="number"/> <p>How much time passed if we measured <span id="cir4-j"></span> joules, at <span id="cir4-v"></span> volts, with <span id="cir4-a"></span> amps?</p><input style="display: none;" id="cir4-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-v-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-a-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir4-s"> <span class="input-group-label">Time</span> <input class="input-group-field" type="number" id="cir4-s-num"/> <div class="input-group-button"> <select id="cir4-s-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">s</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 4:
+                    //j a s = v
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Integrated Coulomb*Volt / Joule Relation</h2> <input style="display: none;" id="cir4-var" value="4" disabled type="number"/> <p>How many Volts did we have if we measured <span id="cir4-j"></span> joules, with <span id="cir4-a"></span> amps, over <span id="cir4-s"></span> seconds?</p><input style="display: none;" id="cir4-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-a-num" value="" disabled type="number"/> <input style="display: none;" id="cir4-s-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir4-v"> <span class="input-group-label">EMF</span> <input class="input-group-field" type="number" id="cir4-v-num"/> <div class="input-group-button"> <select id="cir4-v-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">V</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                default:
+                    
+            }
+            break;
 		default:
 			
 	}
@@ -250,6 +280,45 @@ generate_cir[3] = function() {
     }
 }
 
+generate_cir[4] = function() {
+    switch (document.getElementById('cir4-var').value) {
+        case "1":
+            document.getElementById('cir4-a-num').value = randomDecimal(1, 50);
+            document.getElementById('cir4-a').innerHTML = document.getElementById('cir4-a-num').value;
+            document.getElementById('cir4-s-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir4-s').innerHTML = document.getElementById('cir4-s-num').value;
+            document.getElementById('cir4-v-num').value = randomWholeNumber(2, 24);
+            document.getElementById('cir4-v').innerHTML = document.getElementById('cir4-v-num').value;
+            break;
+        case "2":
+            document.getElementById('cir4-j-num').value = randomDecimal(10, 250);
+            document.getElementById('cir4-j').innerHTML = document.getElementById('cir4-j-num').value;
+            document.getElementById('cir4-v-num').value = randomWholeNumber(2, 24);
+            document.getElementById('cir4-v').innerHTML = document.getElementById('cir4-v-num').value;
+            document.getElementById('cir4-s-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir4-s').innerHTML = document.getElementById('cir4-s-num').value;
+            break;
+        case "3":
+            document.getElementById('cir4-j-num').value = randomDecimal(10, 250);
+            document.getElementById('cir4-j').innerHTML = document.getElementById('cir4-j-num').value;
+            document.getElementById('cir4-v-num').value = randomWholeNumber(2, 24);
+            document.getElementById('cir4-v').innerHTML = document.getElementById('cir4-v-num').value;
+            document.getElementById('cir4-a-num').value = randomDecimal(1, 50);
+            document.getElementById('cir4-a').innerHTML = document.getElementById('cir4-a-num').value;
+            break;
+        case "4":
+            document.getElementById('cir4-j-num').value = randomDecimal(10, 250);
+            document.getElementById('cir4-j').innerHTML = document.getElementById('cir4-j-num').value;
+            document.getElementById('cir4-a-num').value = randomDecimal(1, 50);
+            document.getElementById('cir4-a').innerHTML = document.getElementById('cir4-a-num').value;
+            document.getElementById('cir4-s-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir4-s').innerHTML = document.getElementById('cir4-s-num').value;
+            break;
+        default:
+            
+    }
+}
+
 function check() {
   check_cir[document.getElementById('cir-value').value]();  
 };
@@ -378,6 +447,97 @@ check_cir[3] = function() {
     }
 };
 
+check_cir[4] = function() {
+    switch (document.getElementById('cir4-var').value) {
+        case "1":
+            var digits = significantDigits(document.getElementById('cir4-a-num').value);
+            if (significantDigits(document.getElementById('cir4-s-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-s-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-v-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-v-num').value);
+            }
+            var solution = (document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value) * document.getElementById('cir4-v-num').value;
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven((document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value) * document.getElementById('cir4-v-num').value, solution);
+            var answer = metric_not(document.getElementById('cir4-j-num').value, document.getElementById('cir4-j-not').value);
+            if (solution == answer) {
+                document.getElementById('cir4-j').classList.remove('alert');
+                document.getElementById('cir4-j').classList.add('success');
+            }
+            else {
+                document.getElementById('cir4-j').classList.remove('success');
+                document.getElementById('cir4-j').classList.add('alert');
+            }
+            break;
+        case "2":
+            var digits = significantDigits(document.getElementById('cir4-j-num').value);
+            if (significantDigits(document.getElementById('cir4-v-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-v-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-s-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-s-num').value);
+            }
+            var solution = (document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-s-num').value;
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven((document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-s-num').value, solution);
+            var answer = metric_not(document.getElementById('cir4-a-num').value, document.getElementById('cir4-a-not').value);
+            if (solution == answer) {
+                document.getElementById('cir4-a').classList.remove('alert');
+                document.getElementById('cir4-a').classList.add('success');
+            }
+            else {
+                document.getElementById('cir4-a').classList.remove('success');
+                document.getElementById('cir4-a').classList.add('alert');
+            }
+            break;
+        case "3":
+            var digits = significantDigits(document.getElementById('cir4-j-num').value);
+            if (significantDigits(document.getElementById('cir4-v-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-v-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-a-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-a-num').value);
+            }
+            var solution = (document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-a-num').value;
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven((document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-a-num').value, solution);
+            var answer = metric_not(document.getElementById('cir4-s-num').value, document.getElementById('cir4-s-not').value);
+            if (solution == answer) {
+                document.getElementById('cir4-s').classList.remove('alert');
+                document.getElementById('cir4-s').classList.add('success');
+            }
+            else {
+                document.getElementById('cir4-s').classList.remove('success');
+                document.getElementById('cir4-s').classList.add('alert');
+            }
+            break;
+        case "4":
+            var digits = significantDigits(document.getElementById('cir4-j-num').value);
+            if (significantDigits(document.getElementById('cir4-a-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-a-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-s-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-s-num').value);
+            }
+            var solution = document.getElementById('cir4-j-num').value / (document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value);
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven(document.getElementById('cir4-j-num').value / (document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value), solution);
+            var answer = metric_not(document.getElementById('cir4-v-num').value, document.getElementById('cir4-v-not').value);
+            if (solution == answer) {
+                document.getElementById('cir4-v').classList.remove('alert');
+                document.getElementById('cir4-v').classList.add('success');
+            }
+            else {
+                document.getElementById('cir4-v').classList.remove('success');
+                document.getElementById('cir4-v').classList.add('alert');
+            }
+            break;
+        default:
+            
+    }
+};
+
 function show() {
   show_cir[document.getElementById('cir-value').value]();  
 };
@@ -437,7 +597,7 @@ show_cir[2] = function() {
         default:
             
     }
-}
+};
 
 show_cir[3] = function() {
     switch (document.getElementById('cir3-var').value) {
@@ -492,4 +652,87 @@ show_cir[3] = function() {
         default:
             
     }
-}
+};
+
+show_cir[4] = function() {
+    switch (document.getElementById('cir4-var').value) {
+        case "1":
+            var digits = significantDigits(document.getElementById('cir4-a-num').value);
+            if (significantDigits(document.getElementById('cir4-s-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-s-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-v-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-v-num').value);
+            }
+            var solution = (document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value) * document.getElementById('cir4-v-num').value;
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven((document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value) * document.getElementById('cir4-v-num').value, solution);
+            document.getElementById('cir4-j-num').value = solution;
+            document.getElementById('cir4-j').classList.remove('alert');
+            document.getElementById('cir4-j').classList.remove('success');
+            document.getElementById('cir4-j').classList.add('info');
+            document.getElementById('cir4-j-num').disabled = true;
+            document.getElementById('cir4-j-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "2":
+            var digits = significantDigits(document.getElementById('cir4-j-num').value);
+            if (significantDigits(document.getElementById('cir4-v-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-v-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-s-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-s-num').value);
+            }
+            var solution = (document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-s-num').value;
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven((document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-s-num').value, solution);
+            document.getElementById('cir4-a-num').value = solution;
+            document.getElementById('cir4-a').classList.remove('alert');
+            document.getElementById('cir4-a').classList.remove('success');
+            document.getElementById('cir4-a').classList.add('info');
+            document.getElementById('cir4-a-num').disabled = true;
+            document.getElementById('cir4-a-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "3":
+            var digits = significantDigits(document.getElementById('cir4-j-num').value);
+            if (significantDigits(document.getElementById('cir4-v-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-v-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-a-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-a-num').value);
+            }
+            var solution = (document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-a-num').value;
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven((document.getElementById('cir4-j-num').value / document.getElementById('cir4-v-num').value) / document.getElementById('cir4-a-num').value, solution);
+            document.getElementById('cir4-s-num').value = solution;
+            document.getElementById('cir4-s').classList.remove('alert');
+            document.getElementById('cir4-s').classList.remove('success');
+            document.getElementById('cir4-s').classList.add('info');
+            document.getElementById('cir4-s-num').disabled = true;
+            document.getElementById('cir4-s-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "4":
+            var digits = significantDigits(document.getElementById('cir4-j-num').value);
+            if (significantDigits(document.getElementById('cir4-a-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-a-num').value);
+            }
+            if (significantDigits(document.getElementById('cir4-s-num').value) < digits) {
+                digits = significantDigits(document.getElementById('cir4-s-num').value);
+            }
+            var solution = document.getElementById('cir4-j-num').value / (document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value);
+            solution = Number.parseFloat(solution).toPrecision(digits);
+            solution = roundToEven(document.getElementById('cir4-j-num').value / (document.getElementById('cir4-a-num').value * document.getElementById('cir4-s-num').value), solution);
+            document.getElementById('cir4-v-num').value = solution;
+            document.getElementById('cir4-v').classList.remove('alert');
+            document.getElementById('cir4-v').classList.remove('success');
+            document.getElementById('cir4-v').classList.add('info');
+            document.getElementById('cir4-v-num').disabled = true;
+            document.getElementById('cir4-v-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        default:
+            
+    }
+};
