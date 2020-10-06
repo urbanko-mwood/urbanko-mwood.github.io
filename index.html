@@ -12,7 +12,7 @@
     <div class="top-bar">
 		<div class="top-bar-left">
 			<ul class="menu">
-				<li class="menu-text">RCT Circuit Solver</li>
+				<li class="menu-text" onclick="restart()">RCT Circuit Solver</li>
 				<!--<li>
 					<a href="#">One</a>
 					<ul class="menu vertical">
@@ -25,13 +25,16 @@
 				<li><a href="#">Three</a></li>-->
 				<li><select name="circuit" id="circuit">
 					<option value="">Select a circuit type to solve...</option>
-                    <option value="2">Coulomb/Ampere Relation</option>
-                    <option value="3">Coulomb*Volt/Joule Relation</option>
-                    <option value="4">Integrated Coulomb*Volt/Joule Relation</option>
-                    <option value="5">Ohm's Law Relation</option>
+                    <option value="2" title="Provides problems where you find values based on the relation between charge, current, and time passed.">Coulomb/Ampere Relation</option>
+                    <option value="3" title="Provides problems where you find values based on the relation between energy, charge, and EMF.">Coulomb*Volt/Joule Relation</option>
+                    <option value="4" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation and the Coulomb*Volt/Joule Relation.">Integrated Coulomb*Volt/Joule Relation</option>
+                    <option value="5" title="Provides problems where you find values based on the relation between EMF, current, and resistance.">Ohm's Law Relation</option>
+                    <option value="6" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation, Coulomb*Volt/Joule Relation, and Ohm's Law Relation.">Integrated Ohm's Law Relation</option>
+                    <!--<option value="7">Resistor Color Codes</option>-->
 					<!--<option value="1">Simple Series Ohm's Law</option>-->
 				</select></li>
 				<li><button type="button" class="button" onclick="generate()">Generate a Circuit</button></li>
+                <li><button type="button" class="button" data-toggle="offCanvasSplit">Show References</button></li>
 			</ul>
 		</div>
 		<div class="top-bar-right">
@@ -43,21 +46,109 @@
 	</div>
 	
     <input style="display:none;" id="cir-value" value="" disabled type="number">
-	<div class="grid-container" id="main-grid">
+        <div class="off-canvas-absolute position-left" id="offCanvasSplit" data-off-canvas data-transition="overlap">
+        <button class="close-button" aria-label="Close menu" type="button" data-close>
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <br />
+        <br />
+        <ul class="accordion" data-accordion data-allow-all-closed="true">
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title">Instructions</a>
+                <div class="accordion-content" data-tab-content>
+                    <ol>
+                       <li>Select a type of circuit to solve for from the list above.</li>
+                       <li>Click the generate a circuit button to get a circuit to solve for. You can hit this button as much as you wish to generate different variants.</li>
+                       <li>Solve for the missing values and enter your answers into the spaces provided.</li>
+                       <li>Click the check answers button to make incorrect answers highlight in red and correct answers highlight in green.</li>
+                       <li>If you get stuck you can click show anwsers to see what the correct answers are. This will require you to generate a new circuit before you can continue to work.</li>
+                       <li>Repeat these steps to continue to practice.</li>
+                       <li>...</li>
+                       <li>Profit</li>
+                    </ol>
+                    <p><strong>Make sure you round to the correct significant digit and round-to-even.</strong></p>
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title">Significant digit rules</a>
+                <div class="accordion-content" data-tab-content>
+                    <p>The count of significant digits pretains to your original data and values.</p>
+                    <p>Three rules of what is significant:</p>
+                    <ol>
+                        <li>Non-zero digits are always significant</li>
+                        <li>Any zeros between two significant digits are significant</li>
+                        <li>Trailing zeros on the right side of the decimal point are significant</li>
+                    </ol>
+                    <br />
+                    <p>Based on the three rules, we have some obvious cases that are not significant after our calculations are done:</p>
+                    <ol>
+                        <li>All leading zeros</li>
+                        <li>Extra trailing zeros</li>
+                        <li>Stray numbers that provide greater precision than the original data</li>
+                    </ol>
+                    <p>Example number of significant digits:</p>
+                    <ul>
+                        <li>57 = 2</li>
+                        <li>3.38 = 3</li>
+                        <li>0.46 = 2</li>
+                        <li>304 = 3</li>
+                        <li>38.00023 = 7</li>
+                        <li>38.3000 = 6</li>
+                        <li>0.4820000 = 7</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title">Round-to-even</a>
+                <div class="accordion-content" data-tab-content>
+                    <p>Going left to right, identify the last number you are going to keep. This is the number you are going to round. The next number to the right is the number that will determine how you round.</p>
+                    <p>If the number determining how you round is:</p>
+                    <ul>
+                        <li>0: Your number is already at the correct. Leave it alone.</li>
+                        <li>1-4: Round towards zero.</li>
+                        <li>5, number you are rounding is even: Round towards zero.</li>
+                        <li>5, number you are rounding is odd: Round away from zero.</li>
+                        <li>6-9: Round away from zero.</li>
+                    </ul>
+                    <p>For positive number rounding towards zero is equivalent to rounding down and rounding away from zero is equivalent to rounding up.</p>
+                    <p>Examples of round to the nearest whole number:</p>
+                    <ul>
+                        <li>12.0 = 12</li>
+                        <li>12.3 = 12</li>
+                        <li>12.5 = 12</li>
+                        <li>13.5 = 14</li>
+                        <li>12.7 = 13</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                <a href="#" class="accordion-title">Relation Triangles</a>
+                <div class="accordion-content" data-tab-content>
+                    <img src="img/coulomb%20amp.png" />
+                    <img src="img/joule%20coulombvolt.png" />
+                    <img src="img/ohmslaw.png" />
+                </div>
+            </li>
+        </ul>
+    </div>
+      <div class="off-canvas-content"  data-off-canvas-content>
+      <div class="grid-container" id="main-grid">
 		
 		<div class="grid-x">
 			<div class="small-12 cell">
-				<ol>
-					<li>Select a type of circuit to solve for from the list above.</li>
-					<li>Click the generate a circuit button to get a circuit to solve for. You can hit this button as much as you wish to generate different variants.</li>
-					<li>Solve for the missing values and enter your answers into the spaces provided.</li>
-					<li>Click the check answers button to make incorrect answers highlight in red and correct answers highlight in green.</li>
-					<li>If you get stuck you can click show anwsers to see what the correct answers are. This will require you to generate a new circuit before you can continue to work.</li>
-					<li>Repeat these steps to continue to practice.</li>
-					<li>...</li>
-					<li>Profit</li>
-				</ol>
-                <p><strong>Make sure you round to the correct significant digit and round-to-even.</strong></p>
+                
+                    <ol>
+					   <li>Select a type of circuit to solve for from the list above.</li>
+					   <li>Click the generate a circuit button to get a circuit to solve for. You can hit this button as much as you wish to generate different variants.</li>
+					   <li>Solve for the missing values and enter your answers into the spaces provided.</li>
+					   <li>Click the check answers button to make incorrect answers highlight in red and correct answers highlight in green.</li>
+					   <li>If you get stuck you can click show anwsers to see what the correct answers are. This will require you to generate a new circuit before you can continue to work.</li>
+					   <li>Repeat these steps to continue to practice.</li>
+					   <li>...</li>
+					   <li>Profit</li>
+				    </ol>
+                    <p><strong>Make sure you round to the correct significant digit and round-to-even.</strong></p>
+                </div>
 			</div>
 		</div>
         </div>
