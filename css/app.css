@@ -30,6 +30,18 @@
 	border-style:solid;
 }
 
+.input-group.success2 {
+	border-color:#DDD800; 
+	border-width:2px; 
+	border-style:solid;
+}
+
+.input-group.success10 {
+	border-color:#DD8400; 
+	border-width:2px; 
+	border-style:solid;
+}
+
 .input-group.alert {
 	border-color:#cc4b37; 
 	border-width:2px; 
@@ -40,4 +52,79 @@
 	border-color:#1779ba; 
 	border-width:2px; 
 	border-style:solid;
+}
+
+div.ring {
+  position: relative;
+  top: 11px;
+  left: 95px;
+  float: left;
+  width: 40px;
+  height: 116px;
+  margin-left: 9px;
+  margin-right: 9px;
+  background-color: #000000;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  -webkit-text-stroke: 0.5px white;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+div#ring0 {
+  background-color: #ffffff;
+}
+
+div#ring1 {
+  background-color: #ffffff;
+}
+
+div#ring2 {
+  background-color: #ffffff;
+}
+
+div#ring3 {
+  background-color: #ffffff;
+}
+
+div#ring4 {
+  background-color: #ffffff;
+}
+
+div#ring5 {
+  background-color: #ffffff;
+}
+
+
+div#resistor {
+  display: block;
+  width: 531px;
+  height: 138px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  background-image: url(../img/resistor.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+div#smd {
+  display: block;
+  width: 600px;
+  height: 320px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  background-image: url(../img/smd-resistor.svg.hi.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+div#SMDtext {
+  color: white;
+  font-size: 128px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  padding-top: 60px;
 }
