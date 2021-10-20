@@ -214,7 +214,7 @@ function problem_update() {
 	var selected = document.getElementById('problem_type').value;
 	switch(selected) {
 		case "1":
-			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit"><option value="">Select a relation to solve for...</option><option value="1" title="Provides problems where you find values based on the relation between charge, current, and time passed.">Coulomb/Ampere Relation</option><option value="2" title="Provides problems where you find values based on the relation between energy, charge, and EMF.">Coulomb*Volt/Joule Relation</option><option value="3" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation and the Coulomb*Volt/Joule Relation.">Integrated Coulomb*Volt/Joule Relation</option><option value="4" title="Provides problems where you find values based on the relation between EMF, current, and resistance.">Ohm\'s Law Relation</option><option value="5" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation, Coulomb*Volt/Joule Relation, and Ohm\'s Law Relation.">Integrated Ohm\'s Law Relation</option><option value="6" title="Provides problems where you find values based on the related between energy, power, and time passed.">Joule / Watt*Second Relation</option><option value="7" title="Provides problems where you find values based on the related between power, EMF, and current.">Watt\'s Law Relation</option><option value="8" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation, Coulomb*Volt/Joule Relation, Ohm\'s Law Relation, Joule/Watt*Second, and Watt\'s Law Relation.">Integrated Watt\'s Law Relation</option>';
+			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit"><option value="">Select a relation to solve for...</option><option value="1" title="Provides problems where you find values based on the relation between charge, current, and time passed.">Coulomb/Ampere Relation</option><option value="2" title="Provides problems where you find values based on the relation between energy, charge, and EMF.">Coulomb*Volt/Joule Relation</option><option value="3" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation and the Coulomb*Volt/Joule Relation.">Integrated Coulomb*Volt/Joule Relation</option><option value="4" title="Provides problems where you find values based on the relation between EMF, current, and resistance.">Ohm\'s Law Relation</option><option value="5" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation, Coulomb*Volt/Joule Relation, and Ohm\'s Law Relation.">Integrated Ohm\'s Law Relation</option><option value="6" title="Provides problems where you find values based on the related between energy, power, and time passed.">Joule / Watt*Second Relation</option><option value="7" title="Provides problems where you find values based on the related between power, EMF, and current.">Watt\'s Law Relation</option><option style="display:none;" value="8" title="Provides problems where you find values utilizing the Coulomb/Ampere Relation, Coulomb*Volt/Joule Relation, Ohm\'s Law Relation, Joule/Watt*Second, and Watt\'s Law Relation.">Integrated Watt\'s Law Relation</option>';
 			break;
 		case "2":
 			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit"><option value="">Select a resistor type to interpret...</option><option value="9">Through-Hole Color Codes</option><option value="10">SMD Number Codes</option></select></li>';
@@ -365,10 +365,50 @@ function generate() {
             }
             break;
 		case "6":
-			
+			document.getElementById('cir-value').value = 6;
+            var varation = randomWholeNumber(1, 3);
+            switch (varation) {
+                case 1:
+                    //j = w * s
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Joule / Watt*Second Relation</h2><h5>Provides problems where you find values based on the relation between energy, power, and time passed.</h5><br /><input style="display: none;" id="cir6-var" value="1" disabled type="number"/> <p>How much energy was utilized if we had <span id="cir6-p"></span> watts over <span id="cir6-s"></span> seconds?</p><input style="display: none;" id="cir6-p-num" value="" disabled type="number"/> <input style="display: none;" id="cir6-s-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir6-j"> <span class="input-group-label">Energy</span> <input class="input-group-field" type="number" id="cir6-j-num"/> <div class="input-group-button"> <select id="cir6-j-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">J</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 2:
+                    //w = j/s
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Joule / Watt*Second Relation</h2><h5>Provides problems where you find values based on the relation between energy, power, and time passed.</h5><br /><input style="display: none;" id="cir6-var" value="2" disabled type="number"/> <p>How power was applied if we utilized <span id="cir6-j"></span> joules over <span id="cir6-s"></span> seconds?</p><input style="display: none;" id="cir6-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir6-s-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir6-p"> <span class="input-group-label">Power</span> <input class="input-group-field" type="number" id="cir6-p-num"/> <div class="input-group-button"> <select id="cir6-p-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">W</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 3:
+                    //s = j/w
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Joule / Watt*Second Relation</h2><h5>Provides problems where you find values based on the relation between energy, power, and time passed.</h5><br /><input style="display: none;" id="cir6-var" value="3" disabled type="number"/> <p>How much time passed if we utilized <span id="cir6-j"></span> joules with <span id="cir6-p"></span> watts applied?</p><input style="display: none;" id="cir6-j-num" value="" disabled type="number"/> <input style="display: none;" id="cir6-p-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir6-s"> <span class="input-group-label">Time</span> <input class="input-group-field" type="number" id="cir6-s-num"/> <div class="input-group-button"> <select id="cir6-s-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">s</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                default:
+                    
+			}
 			break;
 		case "7":
-			
+			document.getElementById('cir-value').value = 7;
+            var varation = randomWholeNumber(1, 3);
+            switch (varation) {
+                case 1:
+                    //p = v * i
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Watt\'s Law Relation</h2><h5>Provides problems where you find values based on the relation between power, EMF, and current.</h5><br /><input style="display: none;" id="cir7-var" value="1" disabled type="number"/> <p>How much power was created with a potential differential of <span id="cir7-v"></span> volts driving a current of <span id="cir7-a"></span> amps?</p><input style="display: none;" id="cir7-v-num" value="" disabled type="number"/> <input style="display: none;" id="cir7-a-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir7-p"> <span class="input-group-label">Power</span> <input class="input-group-field" type="number" id="cir7-p-num"/> <div class="input-group-button"> <select id="cir7-p-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">W</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 2:
+                    //v = p/i
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Watt\'s Law Relation</h2><h5>Provides problems where you find values based on the relation between power, EMF, and current.</h5><br /><input style="display: none;" id="cir7-var" value="2" disabled type="number"/> <p>How strong was the electromagnetic force if we had <span id="cir7-p"></span> watts of work with <span id="cir7-a"></span> ampere?</p><input style="display: none;" id="cir7-p-num" value="" disabled type="number"/> <input style="display: none;" id="cir7-a-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir7-v"> <span class="input-group-label">EMF</span> <input class="input-group-field" type="number" id="cir7-v-num"/> <div class="input-group-button"> <select id="cir7-v-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">V</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 3:
+                    //i = p/v
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Watt\'s Law Relation</h2><h5>Provides problems where you find values based on the relation between power, EMF, and current.</h5><br /><input style="display: none;" id="cir7-var" value="3" disabled type="number"/> <p>How manys amps were present with a potential differential of <span id="cir7-v"></span> volts driving <span id="cir7-p"></span> watts of power?</p><input style="display: none;" id="cir7-v-num" value="" disabled type="number"/> <input style="display: none;" id="cir7-p-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir7-a"> <span class="input-group-label">Current</span> <input class="input-group-field" type="number" id="cir7-a-num"/> <div class="input-group-button"> <select id="cir7-a-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">A</span> </div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                default:
+                    
+			}
 			break;
 		case "8":
 			
@@ -1493,6 +1533,342 @@ show_cir[5] = function() {
             document.getElementById('cir5-r').classList.add('info');
             document.getElementById('cir5-r-num').disabled = true;
             document.getElementById('cir5-r-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        default:
+            
+    }
+};
+
+
+
+//Joule/Watt*Second Relation
+generate_cir[6] = function() {
+    switch (document.getElementById('cir6-var').value) {
+        case "1":
+            document.getElementById('cir6-p-num').value = randomDecimal(1, 50);
+            document.getElementById('cir6-p').innerHTML = random_metric(document.getElementById('cir6-p-num').value);
+            document.getElementById('cir6-s-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir6-s').innerHTML = random_metric(document.getElementById('cir6-s-num').value);
+            break;
+        case "2":
+            document.getElementById('cir6-j-num').value = randomDecimal(1, 50);
+            document.getElementById('cir6-j').innerHTML = random_metric(document.getElementById('cir6-j-num').value);
+            document.getElementById('cir6-s-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir6-s').innerHTML = random_metric(document.getElementById('cir6-s-num').value);
+            break;
+        case "3":
+            document.getElementById('cir6-j-num').value = randomDecimal(1, 50);
+            document.getElementById('cir6-j').innerHTML = random_metric(document.getElementById('cir6-j-num').value);
+            document.getElementById('cir6-p-num').value = randomDecimal(1, 50);
+            document.getElementById('cir6-p').innerHTML = random_metric(document.getElementById('cir6-p-num').value);
+            break;
+        default:
+            
+    }
+};
+check_cir[6] = function() {
+    switch (document.getElementById('cir6-var').value) {
+        case "1":
+            var solution = document.getElementById('cir6-p-num').value * document.getElementById('cir6-s-num').value;
+			solution = rounding(solution);
+            var answer = metric_not(document.getElementById('cir6-j-num').value, document.getElementById('cir6-j-not').value);
+			answer = rounding(answer);
+            if (solution == answer) {
+                document.getElementById('cir6-j').classList.remove('alert');
+				document.getElementById('cir6-j').classList.remove('success2');
+				document.getElementById('cir6-j').classList.remove('success10');
+                document.getElementById('cir6-j').classList.add('success');
+			}
+			else if (per2Check(solution, answer)) {
+				document.getElementById('cir6-j').classList.remove('alert');
+				document.getElementById('cir6-j').classList.remove('success');
+				document.getElementById('cir6-j').classList.remove('success10');
+                document.getElementById('cir6-j').classList.add('success2');
+			}
+			else if (per10Check(solution, answer)) {
+				document.getElementById('cir6-j').classList.remove('alert');
+				document.getElementById('cir6-j').classList.remove('success2');
+				document.getElementById('cir6-j').classList.remove('success');
+                document.getElementById('cir6-j').classList.add('success10');
+			}
+            else {
+                document.getElementById('cir6-j').classList.remove('success');
+				document.getElementById('cir6-j').classList.remove('success2');
+				document.getElementById('cir6-j').classList.remove('success10');
+                document.getElementById('cir6-j').classList.add('alert');
+            }
+            break;
+        case "2":
+            var solution = document.getElementById('cir6-j-num').value / document.getElementById('cir6-s-num').value;
+            solution = rounding(solution);
+            var answer = metric_not(document.getElementById('cir6-p-num').value, document.getElementById('cir6-p-not').value);
+			answer = rounding(answer);
+            if (solution == answer) {
+                document.getElementById('cir6-p').classList.remove('alert');
+				document.getElementById('cir6-p').classList.remove('success2');
+				document.getElementById('cir6-p').classList.remove('success10');
+                document.getElementById('cir6-p').classList.add('success');
+			}
+			else if (per2Check(solution, answer)) {
+				document.getElementById('cir6-p').classList.remove('alert');
+				document.getElementById('cir6-p').classList.remove('success');
+				document.getElementById('cir6-p').classList.remove('success10');
+                document.getElementById('cir6-p').classList.add('success2');
+			}
+			else if (per10Check(solution, answer)) {
+				document.getElementById('cir6-p').classList.remove('alert');
+				document.getElementById('cir6-p').classList.remove('success2');
+				document.getElementById('cir6-p').classList.remove('success');
+                document.getElementById('cir6-p').classList.add('success10');
+			}
+            else {
+                document.getElementById('cir6-p').classList.remove('success');
+				document.getElementById('cir6-p').classList.remove('success2');
+				document.getElementById('cir6-p').classList.remove('success10');
+                document.getElementById('cir6-p').classList.add('alert');
+            }
+            break;
+        case "3":
+            var solution = document.getElementById('cir6-j-num').value / document.getElementById('cir6-p-num').value;
+            solution = rounding(solution);
+            var answer = metric_not(document.getElementById('cir6-s-num').value, document.getElementById('cir6-s-not').value);
+			answer = rounding(answer);
+            if (solution == answer) {
+                document.getElementById('cir6-s').classList.remove('alert');
+				document.getElementById('cir6-s').classList.remove('success2');
+				document.getElementById('cir6-s').classList.remove('success10');
+                document.getElementById('cir6-s').classList.add('success');
+			}
+			else if (per2Check(solution, answer)) {
+				document.getElementById('cir6-s').classList.remove('alert');
+				document.getElementById('cir6-s').classList.remove('success');
+				document.getElementById('cir6-s').classList.remove('success10');
+                document.getElementById('cir6-s').classList.add('success2');
+			}
+			else if (per10Check(solution, answer)) {
+				document.getElementById('cir6-s').classList.remove('alert');
+				document.getElementById('cir6-s').classList.remove('success2');
+				document.getElementById('cir6-s').classList.remove('success');
+                document.getElementById('cir6-s').classList.add('success10');
+			}
+            else {
+                document.getElementById('cir6-s').classList.remove('success');
+				document.getElementById('cir6-s').classList.remove('success2');
+				document.getElementById('cir6-s').classList.remove('success10');
+                document.getElementById('cir6-s').classList.add('alert');
+            }
+            break;
+        default:
+            
+    }
+};
+show_cir[6] = function() {
+    switch (document.getElementById('cir6-var').value) {
+        case "1":
+            var solution = document.getElementById('cir6-p-num').value * document.getElementById('cir6-s-num').value;
+            solution = rounding(solution);
+            document.getElementById('cir6-j-num').value = solution;
+            document.getElementById('cir6-j').classList.remove('alert');
+            document.getElementById('cir6-j').classList.remove('success');
+			document.getElementById('cir6-j').classList.remove('success2');
+			document.getElementById('cir6-j').classList.remove('success10');
+            document.getElementById('cir6-j').classList.add('info');
+            document.getElementById('cir6-j-num').disabled = true;
+            document.getElementById('cir6-j-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "2":
+            var solution = document.getElementById('cir6-j-num').value / document.getElementById('cir6-s-num').value;
+            solution = rounding(solution);
+            document.getElementById('cir6-p-num').value = solution;
+            document.getElementById('cir6-p').classList.remove('alert');
+            document.getElementById('cir6-p').classList.remove('success');
+			document.getElementById('cir6-p').classList.remove('success2');
+			document.getElementById('cir6-p').classList.remove('success10');
+            document.getElementById('cir6-p').classList.add('info');
+            document.getElementById('cir6-p-num').disabled = true;
+            document.getElementById('cir6-p-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "3":
+            var solution = document.getElementById('cir6-j-num').value / document.getElementById('cir6-p-num').value;
+            solution = rounding(solution);
+            document.getElementById('cir6-s-num').value = solution;
+            document.getElementById('cir6-s').classList.remove('alert');
+            document.getElementById('cir6-s').classList.remove('success');
+			document.getElementById('cir6-s').classList.remove('success2');
+			document.getElementById('cir6-s').classList.remove('success10');
+            document.getElementById('cir6-s').classList.add('info');
+            document.getElementById('cir6-s-num').disabled = true;
+            document.getElementById('cir6-s-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        default:
+            
+    }
+};
+
+//Watts Law Relation
+generate_cir[7] = function() {
+    switch (document.getElementById('cir7-var').value) {
+        case "1":
+            document.getElementById('cir7-v-num').value = randomDecimal(1, 50);
+            document.getElementById('cir7-v').innerHTML = random_metric(document.getElementById('cir7-v-num').value);
+            document.getElementById('cir7-a-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir7-a').innerHTML = random_metric(document.getElementById('cir7-a-num').value);
+            break;
+        case "2":
+            document.getElementById('cir7-p-num').value = randomDecimal(1, 50);
+            document.getElementById('cir7-p').innerHTML = random_metric(document.getElementById('cir7-p-num').value);
+            document.getElementById('cir7-a-num').value = randomWholeNumber(10, 120);
+            document.getElementById('cir7-a').innerHTML = random_metric(document.getElementById('cir7-a-num').value);
+            break;
+        case "3":
+            document.getElementById('cir7-p-num').value = randomDecimal(1, 50);
+            document.getElementById('cir7-p').innerHTML = random_metric(document.getElementById('cir7-p-num').value);
+            document.getElementById('cir7-v-num').value = randomDecimal(1, 50);
+            document.getElementById('cir7-v').innerHTML = random_metric(document.getElementById('cir7-v-num').value);
+            break;
+        default:
+            
+    }
+};
+check_cir[7] = function() {
+    switch (document.getElementById('cir7-var').value) {
+        case "1":
+            var solution = document.getElementById('cir7-v-num').value * document.getElementById('cir7-a-num').value;
+			solution = rounding(solution);
+            var answer = metric_not(document.getElementById('cir7-p-num').value, document.getElementById('cir7-p-not').value);
+			answer = rounding(answer);
+            if (solution == answer) {
+                document.getElementById('cir7-p').classList.remove('alert');
+				document.getElementById('cir7-p').classList.remove('success2');
+				document.getElementById('cir7-p').classList.remove('success10');
+                document.getElementById('cir7-p').classList.add('success');
+			}
+			else if (per2Check(solution, answer)) {
+				document.getElementById('cir7-p').classList.remove('alert');
+				document.getElementById('cir7-p').classList.remove('success');
+				document.getElementById('cir7-p').classList.remove('success10');
+                document.getElementById('cir7-p').classList.add('success2');
+			}
+			else if (per10Check(solution, answer)) {
+				document.getElementById('cir7-p').classList.remove('alert');
+				document.getElementById('cir7-p').classList.remove('success2');
+				document.getElementById('cir7-p').classList.remove('success');
+                document.getElementById('cir7-p').classList.add('success10');
+			}
+            else {
+                document.getElementById('cir7-p').classList.remove('success');
+				document.getElementById('cir7-p').classList.remove('success2');
+				document.getElementById('cir7-p').classList.remove('success10');
+                document.getElementById('cir7-p').classList.add('alert');
+            }
+            break;
+        case "2":
+            var solution = document.getElementById('cir7-p-num').value / document.getElementById('cir7-a-num').value;
+            solution = rounding(solution);
+            var answer = metric_not(document.getElementById('cir7-v-num').value, document.getElementById('cir7-v-not').value);
+			answer = rounding(answer);
+            if (solution == answer) {
+                document.getElementById('cir7-v').classList.remove('alert');
+				document.getElementById('cir7-v').classList.remove('success2');
+				document.getElementById('cir7-v').classList.remove('success10');
+                document.getElementById('cir7-v').classList.add('success');
+			}
+			else if (per2Check(solution, answer)) {
+				document.getElementById('cir7-v').classList.remove('alert');
+				document.getElementById('cir7-v').classList.remove('success');
+				document.getElementById('cir7-v').classList.remove('success10');
+                document.getElementById('cir7-v').classList.add('success2');
+			}
+			else if (per10Check(solution, answer)) {
+				document.getElementById('cir7-v').classList.remove('alert');
+				document.getElementById('cir7-v').classList.remove('success2');
+				document.getElementById('cir7-v').classList.remove('success');
+                document.getElementById('cir7-v').classList.add('success10');
+			}
+            else {
+                document.getElementById('cir7-v').classList.remove('success');
+				document.getElementById('cir7-v').classList.remove('success2');
+				document.getElementById('cir7-v').classList.remove('success10');
+                document.getElementById('cir7-v').classList.add('alert');
+            }
+            break;
+        case "3":
+            var solution = document.getElementById('cir7-p-num').value / document.getElementById('cir7-v-num').value;
+            solution = rounding(solution);
+            var answer = metric_not(document.getElementById('cir7-a-num').value, document.getElementById('cir7-a-not').value);
+			answer = rounding(answer);
+            if (solution == answer) {
+                document.getElementById('cir7-a').classList.remove('alert');
+				document.getElementById('cir7-a').classList.remove('success2');
+				document.getElementById('cir7-a').classList.remove('success10');
+                document.getElementById('cir7-a').classList.add('success');
+			}
+			else if (per2Check(solution, answer)) {
+				document.getElementById('cir7-a').classList.remove('alert');
+				document.getElementById('cir7-a').classList.remove('success');
+				document.getElementById('cir7-a').classList.remove('success10');
+                document.getElementById('cir7-a').classList.add('success2');
+			}
+			else if (per10Check(solution, answer)) {
+				document.getElementById('cir7-a').classList.remove('alert');
+				document.getElementById('cir7-a').classList.remove('success2');
+				document.getElementById('cir7-a').classList.remove('success');
+                document.getElementById('cir7-a').classList.add('success10');
+			}
+            else {
+                document.getElementById('cir7-a').classList.remove('success');
+				document.getElementById('cir7-a').classList.remove('success2');
+				document.getElementById('cir7-a').classList.remove('success10');
+                document.getElementById('cir7-a').classList.add('alert');
+            }
+            break;
+        default:
+            
+    }
+};
+show_cir[7] = function() {
+    switch (document.getElementById('cir7-var').value) {
+        case "1":
+            var solution = document.getElementById('cir7-v-num').value * document.getElementById('cir7-a-num').value;
+            solution = rounding(solution);
+            document.getElementById('cir7-p-num').value = solution;
+            document.getElementById('cir7-p').classList.remove('alert');
+            document.getElementById('cir7-p').classList.remove('success');
+			document.getElementById('cir7-p').classList.remove('success2');
+			document.getElementById('cir7-p').classList.remove('success10');
+            document.getElementById('cir7-p').classList.add('info');
+            document.getElementById('cir7-p-num').disabled = true;
+            document.getElementById('cir7-p-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "2":
+            var solution = document.getElementById('cir7-p-num').value / document.getElementById('cir7-a-num').value;
+            solution = rounding(solution);
+            document.getElementById('cir7-v-num').value = solution;
+            document.getElementById('cir7-v').classList.remove('alert');
+            document.getElementById('cir7-v').classList.remove('success');
+			document.getElementById('cir7-v').classList.remove('success2');
+			document.getElementById('cir7-v').classList.remove('success10');
+            document.getElementById('cir7-v').classList.add('info');
+            document.getElementById('cir7-v-num').disabled = true;
+            document.getElementById('cir7-v-not').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+        case "3":
+            var solution = document.getElementById('cir7-p-num').value / document.getElementById('cir7-v-num').value;
+            solution = rounding(solution);
+            document.getElementById('cir7-a-num').value = solution;
+            document.getElementById('cir7-a').classList.remove('alert');
+            document.getElementById('cir7-a').classList.remove('success');
+			document.getElementById('cir7-a').classList.remove('success2');
+			document.getElementById('cir7-a').classList.remove('success10');
+            document.getElementById('cir7-a').classList.add('info');
+            document.getElementById('cir7-a-num').disabled = true;
+            document.getElementById('cir7-a-not').disabled = true;
             document.getElementById('check_but').disabled = true;
             break;
         default:
