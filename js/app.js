@@ -411,7 +411,76 @@ function generate() {
 			}
 			break;
 		case "8":
-			
+			document.getElementById('cir-value').value = 8;
+            var varation = randomWholeNumber(1, 13);
+            switch (varation) {
+				case 1:
+					//v = c s r
+					document.getElementById('main-grid').innerHTML = '<div class="grid-x"> <div class="small-12 cell"> <h2>Integrated Watt\'s Law Relation</h2><h5>Provides problems where you find values utilizing the Coulomb/Ampere Relation, Coulomb*Volt/Joule Relation, Ohm\'s Law Relation, Joule/Watt*Second, and Watt\'s Law Relation.</h5><br /><input style="display: none;" id="cir8-var" value="1" disabled type="number"/> <p>How much of a charge did we have with a resistance of <span id="cir5-r"></span> ohms, at <span id="cir5-a"></span> amps, using <span id="cir5-j"></span> joules of energy?</p><input style="display: none;" id="cir5-r-num" value="" disabled type="number"/> <input style="display: none;" id="cir5-a-num" value="" disabled type="number"/> <input style="display: none;" id="cir5-j-num" value="" disabled type="number"/> <div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir5-c"> <span class="input-group-label">Charge</span> <input class="input-group-field" type="number" id="cir5-c-num"/> <div class="input-group-button"> <select id="cir5-c-not"> <option value="T">T</option> <option value="G">G</option> <option value="M">M</option> <option value="k">k</option> <option value="." selected>.</option> <option value="m">m</option> <option value="mu">μ</option> <option value="n">n</option> <option value="p">p</option> </select> </div><span class="input-group-label">C</span> </div></div></div></div></div>';
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 2:
+					//v = p s c
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 3:
+					//r = p s c
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 4:	
+					//a = j v s
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 5:	
+					//a = j c r
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 6:	
+					//p = v c s
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 7:	
+					//p = c v s
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 8:	
+					//c = a j p
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 9:	
+					//c = p s v
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 10:	
+					//j = c a r
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 11:	
+					//j = p c a
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 12:	
+					//s = j v a
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				case 13:	
+					//s = j v r
+					
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+                default:
+			}
 			break;
 		case "9":
 			document.getElementById('cir-value').value = 9;
@@ -2022,13 +2091,13 @@ generate_cir[9] = function() {
 			document.getElementById('cir9-ring1').value = digit2;
 			var mult = randomWholeNumber(1, 3);
 			if (mult < 3) {
-				mult = randomWholeNumber(0, 8);
+				mult = randomWholeNumber(0, 9);
 				document.getElementById('ring2').style.backgroundColor = ctable[mult];
 				document.getElementById('ring2').title = ntable[mult];
 				document.getElementById('ring2').innerHTML = ntable[mult];
 			}
 			else {
-				mult = randomWholeNumber(0, 10);
+				mult = randomWholeNumber(0, 11);
 				document.getElementById('ring2').style.backgroundColor = cetable[mult];
 				document.getElementById('ring2').title = netable[mult];
 				document.getElementById('ring2').innerHTML = netable[mult];
@@ -2051,13 +2120,13 @@ generate_cir[9] = function() {
 			document.getElementById('cir9-ring1').value = digit2;
 			var mult = randomWholeNumber(1, 3);
 			if (mult < 3) {
-				mult = randomWholeNumber(0, 8);
+				mult = randomWholeNumber(0, 9);
 				document.getElementById('ring2').style.backgroundColor = ctable[mult];
 				document.getElementById('ring2').title = ntable[mult];
 				document.getElementById('ring2').innerHTML = ntable[mult];
 			}
 			else {
-				mult = randomWholeNumber(0, 10);
+				mult = randomWholeNumber(0, 11);
 				document.getElementById('ring2').style.backgroundColor = cetable[mult];
 				document.getElementById('ring2').title = netable[mult];
 				document.getElementById('ring2').innerHTML = netable[mult];
@@ -2095,13 +2164,13 @@ generate_cir[9] = function() {
 			document.getElementById('cir9-ring2').value = digit3;
 			var mult = randomWholeNumber(1, 3);
 			if (mult < 3) {
-				mult = randomWholeNumber(0, 8);
+				mult = randomWholeNumber(0, 9);
 				document.getElementById('ring3').style.backgroundColor = ctable[mult];
 				document.getElementById('ring3').title = ntable[mult];
 				document.getElementById('ring3').innerHTML = ntable[mult];
 			}
 			else {
-				mult = randomWholeNumber(0, 10);
+				mult = randomWholeNumber(0, 11);
 				document.getElementById('ring3').style.backgroundColor = cetable[mult];
 				document.getElementById('ring3').title = netable[mult];
 				document.getElementById('ring3').innerHTML = netable[mult];
@@ -2140,13 +2209,13 @@ generate_cir[9] = function() {
 			document.getElementById('cir9-ring2').value = digit3;
 			var mult = randomWholeNumber(1, 3);
 			if (mult < 3) {
-				mult = randomWholeNumber(0, 8);
+				mult = randomWholeNumber(0, 9);
 				document.getElementById('ring3').style.backgroundColor = ctable[mult];
 				document.getElementById('ring3').title = ntable[mult];
 				document.getElementById('ring3').innerHTML = ntable[mult];
 			}
 			else {
-				mult = randomWholeNumber(0, 10);
+				mult = randomWholeNumber(0, 11);
 				document.getElementById('ring3').style.backgroundColor = cetable[mult];
 				document.getElementById('ring3').title = netable[mult];
 				document.getElementById('ring3').innerHTML = netable[mult];
@@ -2192,13 +2261,13 @@ check_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring1').value));
 			var temp = parseInt(document.getElementById('cir9-ring2').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring2').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring2').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = 20;
@@ -2226,13 +2295,13 @@ check_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring1').value));
 			var temp = parseInt(document.getElementById('cir9-ring2').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring2').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring2').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring3').value)];
@@ -2261,13 +2330,13 @@ check_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring2').value));
 			var temp = parseInt(document.getElementById('cir9-ring3').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring3').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring3').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
@@ -2296,13 +2365,13 @@ check_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring2').value));
 			var temp = parseInt(document.getElementById('cir9-ring3').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring3').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring3').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
@@ -2345,13 +2414,13 @@ show_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring1').value));
 			var temp = parseInt(document.getElementById('cir9-ring2').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring2').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring2').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = 20;
@@ -2373,13 +2442,13 @@ show_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring1').value));
 			var temp = parseInt(document.getElementById('cir9-ring2').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring2').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring2').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring2').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring2').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring3').value)];
@@ -2402,13 +2471,13 @@ show_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring2').value));
 			var temp = parseInt(document.getElementById('cir9-ring3').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring3').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring3').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
@@ -2431,13 +2500,13 @@ show_cir[9] = function() {
 			value += (parseInt(document.getElementById('cir9-ring2').value));
 			var temp = parseInt(document.getElementById('cir9-ring3').value);
 			temp = Math.pow(10, temp); 
-			if (parseInt(document.getElementById('cir9-ring3').value) < 9) {
+			if (parseInt(document.getElementById('cir9-ring3').value) < 10) {
 				value = value * temp;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 9) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
 				value = value * 0.1;
 			}
-			else if (parseInt(document.getElementById('cir9-ring3').value) == 10) {
+			else if (parseInt(document.getElementById('cir9-ring3').value) == 11) {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
