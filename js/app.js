@@ -219,6 +219,12 @@ function problem_update() {
 		case "2":
 			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit"><option value="">Select a resistor type to interpret...</option><option value="9">Through-Hole Color Codes</option><option value="10">SMD Number Codes</option></select></li>';
 			break;
+		case "3":
+			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit"><option value="">Select an oscilloscope to read...</option><option value="11">Auto-Adjusted Display</option></select></li>';
+			break;
+		case "4":
+			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit"><option value="">Select a number system to convert...</option><option value="12">Binary</option><option value="13">Octal</option><option value="14">Hexadecimal</option></select></li>';
+			break;
 		default:
 			document.getElementById('problem_settings').innerHTML = '<li><select name="circuit" id="circuit" disabled><option value=""></option></select></li>';
 			break;
@@ -533,6 +539,93 @@ function generate() {
 				
 			}
 			break;
+		case "11":
+			document.getElementById('cir-value').value = 11;
+            var varation = randomWholeNumber(1, 1);
+			switch (varation) {
+				case 1:
+					//auto-adjusted
+					document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Auto-Adjusted Display Oscilloscope</h2><h5></h5><br /><input style="display:none;" id="cir11-var" value="1" disabled type="number"><div id="display" class=""></div><div id="timings"></div><div id="voltages"></div></div></div>';
+					generate_cir[document.getElementById('cir-value').value]();
+					break;
+				default:
+				
+			}
+			break;
+		 case "12":
+            document.getElementById('cir-value').value = 12;
+            var varation = randomWholeNumber(1, 4);
+            switch (varation) {
+                case 1:
+                    //bin to dec
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Binary Conversion</h2><h5>Provides problems where you convert between binary and decimal or hexadecimal.</h5><br /><input style="display:none;" id="cir12-var" value="1" disabled type="number"> <p>Convert <span id="cir12-BIN"></span> BIN to DEC.</p><input style="display:none;" id="cir12-BIN-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir12-DEC"> <span class="input-group-label">DEC</span> <input class="input-group-field" type="text" id="cir12-DEC-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 2:
+                    //dec to bin
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Binary Conversion</h2><h5>Provides problems where you convert between binary and decimal or hexadecimal.</h5><br /><input style="display:none;" id="cir12-var" value="2" disabled type="number"> <p>Convert <span id="cir12-DEC"></span> DEC to BIN.</p><input style="display:none;" id="cir12-DEC-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir12-BIN"> <span class="input-group-label">BIN</span> <input class="input-group-field" type="text" id="cir12-BIN-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 3:
+                    //bin to hex
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Binary Conversion</h2><h5>Provides problems where you convert between binary and decimal or hexadecimal.</h5><br /><input style="display:none;" id="cir12-var" value="3" disabled type="number"> <p>Convert <span id="cir12-BIN"></span> BIN to HEX.</p><input style="display:none;" id="cir12-BIN-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir12-HEX"> <span class="input-group-label">HEX</span> <input class="input-group-field" type="text" id="cir12-HEX-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+				case 4:
+                    //hex to bin
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Binary Conversion</h2><h5>Provides problems where you convert between binary and decimal or hexadecimal.</h5><br /><input style="display:none;" id="cir12-var" value="4" disabled type="number"> <p>Convert <span id="cir12-HEX"></span> HEX to BIN.</p><input style="display:none;" id="cir12-HEX-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir12-BIN"> <span class="input-group-label">BIN</span> <input class="input-group-field" type="text" id="cir12-BIN-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                default:
+                    
+            }
+            break;
+		case "13":
+            document.getElementById('cir-value').value = 13;
+            var varation = randomWholeNumber(1, 2);
+            switch (varation) {
+                case 1:
+                    //oct to dec
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Octal Conversion</h2><h5>Provides problems where you convert between octal and decimal.</h5><br /><input style="display:none;" id="cir13-var" value="1" disabled type="number"> <p>Convert <span id="cir13-OCT"></span> OCT to DEC.</p><input style="display:none;" id="cir13-OCT-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir13-DEC"> <span class="input-group-label">DEC</span> <input class="input-group-field" type="text" id="cir13-DEC-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 2:
+                    //dec to oct
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Octal Conversion</h2><h5>Provides problems where you convert between octal and decimal.</h5><br /><input style="display:none;" id="cir13-var" value="2" disabled type="number"> <p>Convert <span id="cir13-DEC"></span> DEC to OCT.</p><input style="display:none;" id="cir13-DEC-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir13-OCT"> <span class="input-group-label">OCT</span> <input class="input-group-field" type="text" id="cir13-OCT-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                default:
+                    
+            }
+            break;
+		 case "14":
+            document.getElementById('cir-value').value = 14;
+            var varation = randomWholeNumber(1, 4);
+            switch (varation) {
+                case 1:
+                    //hex to dec
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Hexadecimal Conversion</h2><h5>Provides problems where you convert between hexadecimal and decimal or binary.</h5><br /><input style="display:none;" id="cir14-var" value="1" disabled type="number"> <p>Convert <span id="cir14-HEX"></span> HEX to DEC.</p><input style="display:none;" id="cir14-HEX-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir14-DEC"> <span class="input-group-label">DEC</span> <input class="input-group-field" type="text" id="cir14-DEC-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 2:
+                    //dec to hex
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Hexadecimal Conversion</h2><h5>Provides problems where you convert between hexadecimal and decimal or binary.</h5><br /><input style="display:none;" id="cir14-var" value="2" disabled type="number"> <p>Convert <span id="cir14-DEC"></span> DEC to HEX.</p><input style="display:none;" id="cir14-DEC-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir14-HEX"> <span class="input-group-label">HEX</span> <input class="input-group-field" type="text" id="cir14-HEX-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                case 3:
+                    //bin to hex
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Hexadecimal Conversion</h2><h5>Provides problems where you convert between hexadecimal and decimal or binary.</h5><br /><input style="display:none;" id="cir14-var" value="3" disabled type="number"> <p>Convert <span id="cir14-BIN"></span> BIN to HEX.</p><input style="display:none;" id="cir14-BIN-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir14-HEX"> <span class="input-group-label">HEX</span> <input class="input-group-field" type="text" id="cir14-HEX-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+				case 4:
+                    //hex to bin
+                    document.getElementById('main-grid').innerHTML = '<div class="grid-x"><div class="small-12 cell"><h2>Hexadecimal Conversion</h2><h5>Provides problems where you convert between hexadecimal and decimal or binary.</h5><br /><input style="display:none;" id="cir14-var" value="4" disabled type="number"> <p>Convert <span id="cir14-HEX"></span> HEX to BIN.</p><input style="display:none;" id="cir14-HEX-num" value="" disabled type="text"><div class="grid-x"> <div class="small-4 cell"> <div class="input-group" id="cir14-BIN"> <span class="input-group-label">BIN</span> <input class="input-group-field" type="text" id="cir14-BIN-num"></div></div></div></div></div>';
+                    generate_cir[document.getElementById('cir-value').value]();
+                    break;
+                default:
+                    
+            }
+            break;
 		default:
 			restart();
 	}
@@ -2270,6 +2363,7 @@ check_cir[9] = function() {
 			else if (parseInt(document.getElementById('cir9-ring2').value) == 11) {
 				value = value * 0.01;
 			}
+			value = rounding(value);
 			var tol = 20;
 			var ranswer = metric_not(document.getElementById('cir9-r-num').value, document.getElementById('cir9-r-not').value);
 			ranswer = rounding(ranswer);
@@ -2304,6 +2398,7 @@ check_cir[9] = function() {
 			else if (parseInt(document.getElementById('cir9-ring2').value) == 11) {
 				value = value * 0.01;
 			}
+			value = rounding(value);
 			var tol = ttable[parseInt(document.getElementById('cir9-ring3').value)];
 			var ranswer = metric_not(document.getElementById('cir9-r-num').value, document.getElementById('cir9-r-not').value);
 			ranswer = rounding(ranswer);
@@ -2339,6 +2434,7 @@ check_cir[9] = function() {
 			else if (parseInt(document.getElementById('cir9-ring3').value) == 11) {
 				value = value * 0.01;
 			}
+			value = rounding(value);
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
 			var ranswer = metric_not(document.getElementById('cir9-r-num').value, document.getElementById('cir9-r-not').value);
 			ranswer = rounding(ranswer);
@@ -2374,6 +2470,7 @@ check_cir[9] = function() {
 			else if (parseInt(document.getElementById('cir9-ring3').value) == 11) {
 				value = value * 0.01;
 			}
+			value = rounding(value);
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
 			var tcr = tcrtable[parseInt(document.getElementById('cir9-ring5').value)];
 			var ranswer = metric_not(document.getElementById('cir9-r-num').value, document.getElementById('cir9-r-not').value);
@@ -2424,7 +2521,7 @@ show_cir[9] = function() {
 				value = value * 0.01;
 			}
 			var tol = 20;
-			document.getElementById('cir9-r-num').value = value;
+			document.getElementById('cir9-r-num').value = rounding(value);
             document.getElementById('cir9-r').classList.remove('alert');
             document.getElementById('cir9-r').classList.remove('success');
             document.getElementById('cir9-r').classList.add('info');
@@ -2452,7 +2549,7 @@ show_cir[9] = function() {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring3').value)];
-			document.getElementById('cir9-r-num').value = value;
+			document.getElementById('cir9-r-num').value = rounding(value);
             document.getElementById('cir9-r').classList.remove('alert');
             document.getElementById('cir9-r').classList.remove('success');
             document.getElementById('cir9-r').classList.add('info');
@@ -2481,7 +2578,7 @@ show_cir[9] = function() {
 				value = value * 0.01;
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
-			document.getElementById('cir9-r-num').value = value;
+			document.getElementById('cir9-r-num').value = rounding(value);
             document.getElementById('cir9-r').classList.remove('alert');
             document.getElementById('cir9-r').classList.remove('success');
             document.getElementById('cir9-r').classList.add('info');
@@ -2511,7 +2608,7 @@ show_cir[9] = function() {
 			}
 			var tol = ttable[parseInt(document.getElementById('cir9-ring4').value)];
 			var tcr = tcrtable[parseInt(document.getElementById('cir9-ring5').value)];
-			document.getElementById('cir9-r-num').value = value;
+			document.getElementById('cir9-r-num').value = rounding(value);
             document.getElementById('cir9-r').classList.remove('alert');
             document.getElementById('cir9-r').classList.remove('success');
             document.getElementById('cir9-r').classList.add('info');
@@ -2990,4 +3087,675 @@ show_cir[10] = function() {
 			break;
 		default:
 	}
+};
+
+
+function createGrid(ctx) {
+    ctx.beginPath();
+    ctx.moveTo(0, midPoint.y);
+    ctx.lineTo(c.width, midPoint.y);
+    ctx.moveTo(midPoint.x, 0);
+    ctx.lineTo(midPoint.x, c.height);
+    if (displaySettings.displayType == 1) {
+		ctx.strokeStyle = "#196156";
+		ctx.lineWidth = "2";
+	}
+	else {
+		ctx.strokeStyle = "#ffffff";
+		ctx.lineWidth = "0.5";
+	}
+    ctx.globalCompositeOperation = "source-over";
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    gridLineX = midPoint.x - 80;
+    while (gridLineX >= 0) {
+        ctx.moveTo(gridLineX, 0);
+        ctx.lineTo(gridLineX, c.height);
+        gridLineX -= 80;
+    }
+    gridLineX = midPoint.x + 80;
+    while (gridLineX <= c.width) {
+        ctx.moveTo(gridLineX, 0);
+        ctx.lineTo(gridLineX, c.height);
+        gridLineX += 80;
+    }
+    gridLineY = midPoint.y - 80;
+    while (gridLineY >= 0) {
+        ctx.moveTo(0, gridLineY);
+        ctx.lineTo(c.width, gridLineY);
+        gridLineY -= 80;
+    }
+    gridLineY = midPoint.y + 80;
+    while (gridLineY <= c.height) {
+        ctx.moveTo(0, gridLineY);
+        ctx.lineTo(c.width, gridLineY);
+        gridLineY += 80;
+    }
+    dashesX = midPoint.x - 16;
+    while (dashesX >= 0) {
+        ctx.moveTo(dashesX, midPoint.y - 4);
+        ctx.lineTo(dashesX, midPoint.y + 4);
+        dashesX -= 16;
+    }
+    while (dashesX <= c.width) {
+        ctx.moveTo(dashesX, midPoint.y - 4);
+        ctx.lineTo(dashesX, midPoint.y + 4);
+        dashesX += 16;
+    }
+    dashesY = midPoint.y - 16;
+    while (dashesY >= 0) {
+        ctx.moveTo(midPoint.x - 4, dashesY);
+        ctx.lineTo(midPoint.x + 4, dashesY);
+        dashesY -= 16;
+    }
+    dashesY = midPoint.y + 16;
+    while (dashesY <= c.height) {
+        ctx.moveTo(midPoint.x - 4, dashesY);
+        ctx.lineTo(midPoint.x + 4, dashesY);
+        dashesY += 16;
+    }
+    ctx.stroke();
+};
+
+var previousTranslate = { x: 0, y: 0 };
+var mapRange = function (from, to, s) {
+    return to[0] + ((s - from[0]) * (to[1] - to[0])) / (from[1] - from[0]);
+};
+
+timings = [
+	["0.1 µs", 0.0001],
+	["0.2 µs", 0.0002],
+	["0.5 µs", 0.0005],
+	["1 µs", 0.001],
+	["2 µs", 0.002],
+	["5 µs", 0.005],
+	["10 µs", 0.01],
+	["20 µs", 0.02],
+	["50 µs", 0.05],
+	["0.1 ms", 0.1],
+	["0.2 ms", 0.2],
+	["0.5 ms", 0.5],
+	["1 ms", 1],
+	["2 ms", 2],
+	["5 ms", 5],
+	["10 ms", 10],
+	["20 ms", 20],
+	["50 ms", 50],
+	["0.1 s", 100],
+	["0.2 s", 200],
+	["0.5 s", 500],
+	["1 s", 1000],
+	["2 s", 2000]
+];
+
+voltages = [
+	["5 mV", 0.001],
+	["10 mV", 0.004],
+	["20 mV", 0.002],
+	["50 mV", 0.01],
+	["0.1 V", 0.02],
+	["0.2 V", 0.04],
+	["0.5 V", 0.1],
+	["1 V", 0.2],
+	["2 V", 0.4],
+	["5 V", 1]
+];
+
+var displaySettings = {
+    displayType: 1, //1 = analog, 2 = digital
+	inputType: 1, //1 = sine, 2 = square
+    freq: 250, 
+    gain: 1, 
+    timing: 1, 
+    volts: 1,
+    horizOffset: 0, //{ title: "Horizontal Offset", value: 0, range: [-100, 100], resolution: 1, input: "hidden" },
+    vertOffset: 0, //{ title: "Vertical Offset", value: 0, range: [-100, 100], resolution: 1, input: "hidden" },
+	frequencyBinCount: 512,
+};
+
+function createDisplay() {
+	display = document.getElementById("display");
+	c = document.createElement("canvas");
+	c2 = document.createElement("canvas");
+	var w = window;
+	screenHeight = w.innerHeight;
+	screenWidth = w.innerWidth;
+	c.width = display.clientWidth * 0.8;
+	c.height = document.body.clientHeight;
+	c.height = c.width * 0.8;
+	c2.width = display.clientWidth* 0.8;
+	c2.height = document.body.clientHeight;
+	c2.height = c.height;
+	$("#display").height(c.height + 20);
+	if (displaySettings.displayType == 1) {
+		c.style.backgroundColor = "#5db1a2";
+	}
+	else {
+		c.style.backgroundColor = "#000000";
+	}
+	display.appendChild(c);
+	display.appendChild(c2);
+	midPoint = { x: c.width / 2, y: c.height / 2 };
+	ctx = c.getContext("2d");
+	ctx2 = c2.getContext("2d");
+	createGrid(ctx);
+};
+
+function drawData() {
+    ctx2.translate(-previousTranslate.x, -previousTranslate.y);
+    ctx2.clearRect(0, 0, c.width, c.height);
+    ctx2.translate(displaySettings.horizOffset, displaySettings.vertOffset);
+    ctx2.beginPath();
+	if (displaySettings.displayType == 1) {
+		ctx2.strokeStyle = "#befde5";
+	}
+	else {
+		lineColor = randomWholeNumber(1,5);
+		switch (lineColor) {
+			case 1:
+				ctx2.strokeStyle = "#008cff";
+				break;
+			case 2:
+				ctx2.strokeStyle = "#f6ff00";
+				break;
+			case 3:
+				ctx2.strokeStyle = "#9500ff";
+				break;
+			case 4:
+				ctx2.strokeStyle = "#ff9100";
+				break;
+			case 5:
+			default:
+				ctx2.strokeStyle = "#08a300";
+				break;
+		}
+	}
+    ctx2.lineWidth = 5;
+    for (var i = -displaySettings.frequencyBinCount / 2; i <= displaySettings.frequencyBinCount / 2; i++) {
+        index = i + displaySettings.frequencyBinCount / 2;
+		var xc = i * (c.width / displaySettings.frequencyBinCount);
+		scaledRangeValue = mapRange([1, 2], [1, 3], timings[displaySettings.timing][1]);
+		var amplitude = 100 / voltages[displaySettings.volts][1];
+		var yc = -amplitude * Math.sin(2 * Math.PI * xc * displaySettings.freq * 0.00001 * timings[displaySettings.timing][1]);
+		if (displaySettings.inputType == 2) {
+			if (yc > 0) {
+				yc = amplitude;
+			}
+			else {
+				yc = -amplitude;
+			}
+		}
+		yc *= displaySettings.gain;
+		yc = c.height / 2 + yc;
+		xc += c.width / 2;
+		ctx2.lineTo(xc, yc);
+        previousTranslate = { x: displaySettings.horizOffset, y: displaySettings.vertOffset };
+    }
+    ctx2.stroke();
+
+};
+
+//auto-adjusted oscilloscope
+generate_cir[11] = function() {
+	switch (document.getElementById('cir11-var').value) {
+		case "1":
+			displaySettings.displayType = randomWholeNumber(1,2);
+			displaySettings.inputType = randomWholeNumber(1,2);
+			displaySettings.timing = randomWholeNumber(0,22);
+			switch (displaySettings.timing) {
+				case 22:
+					displaySettings.freq = randomWholeNumber(20, 40);
+					displaySettings.freq *= 0.00001;
+					break;
+				case 21:
+					displaySettings.freq = randomWholeNumber(40, 80);
+					displaySettings.freq *= 0.00001;
+					break;
+				case 20:
+					displaySettings.freq = randomWholeNumber(10, 20);
+					displaySettings.freq *= 0.0001;
+					break;
+				case 19:
+					displaySettings.freq = randomWholeNumber(20, 40);
+					displaySettings.freq *= 0.0001;
+					break;	
+				case 18:
+					displaySettings.freq = randomWholeNumber(40, 80);
+					displaySettings.freq *= 0.0001;
+					break;
+				case 17:
+					displaySettings.freq = randomWholeNumber(10, 20);
+					displaySettings.freq *= 0.001;
+					break;
+				case 16:
+					displaySettings.freq = randomWholeNumber(20, 40);
+					displaySettings.freq *= 0.001;
+					break;
+				case 15:
+					displaySettings.freq = randomWholeNumber(40, 80);
+					displaySettings.freq *= 0.001;
+					break;
+				case 14:
+					displaySettings.freq = randomWholeNumber(10, 20);
+					displaySettings.freq *= 0.01;
+					break;
+				case 13:
+					displaySettings.freq = randomWholeNumber(20, 40);
+					displaySettings.freq *= 0.01;
+					break;
+				case 12:
+					displaySettings.freq = randomWholeNumber(40, 80);
+					displaySettings.freq *= 0.01;
+					break;
+				case 11:
+					displaySettings.freq = randomWholeNumber(10, 20);
+					displaySettings.freq *= 0.1;
+					break;
+				case 10:
+					displaySettings.freq = randomWholeNumber(20, 40);
+					displaySettings.freq *= 0.1;
+					break;
+				case 9:
+					displaySettings.freq = randomWholeNumber(40, 80);
+					displaySettings.freq *= 0.1;
+					break;
+				case 8:
+					displaySettings.freq = randomWholeNumber(10, 20);
+					break;
+				case 7:
+					displaySettings.freq = randomWholeNumber(20, 40);
+					break;
+				case 6:
+					displaySettings.freq = randomWholeNumber(40, 80);
+					break;
+				case 5:
+					displaySettings.freq = randomWholeNumber(100, 200);
+					break;
+				case 4:
+					displaySettings.freq = randomWholeNumber(200, 400);
+					break;
+				case 3:
+					displaySettings.freq = randomWholeNumber(400, 800);
+					break;
+				case 2:
+					displaySettings.freq = randomWholeNumber(1000, 2000);
+					break;
+				case 1:
+					displaySettings.freq = randomWholeNumber(2000, 4000);
+					break;
+				case 0:
+				default:
+					displaySettings.freq = randomWholeNumber(4000, 8000);
+					break;
+			}
+			factor = randomDecimal(1.5,3.25);
+			displaySettings.freq = displaySettings.freq / factor * 1000;
+			
+			displaySettings.volts = randomWholeNumber(0, 9);
+			switch (displaySettings.volts) {
+				case 9:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.1;
+					break;
+				case 8:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.03;
+					break;
+				case 7:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.02;
+					break;
+				case 6:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.01;
+					break;
+				case 5:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.003;
+					break;
+				case 4:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.002;
+					break;
+				case 3:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.001;
+					break;
+				case 2:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.0003;
+					break;
+				case 1:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.0002;
+					break;
+				case 0:
+				default:
+					displaySettings.gain = randomWholeNumber(10, 20);
+					displaySettings.gain *= 0.0001;
+					break; 
+			}
+			
+			createDisplay();
+			drawData();
+			document.getElementById('timings').innerHTML = timings[displaySettings.timing][0];
+			document.getElementById('voltages').innerHTML = voltages[displaySettings.volts][0];
+			break;
+		default:
+	}
+};
+check_cir[11] = function() {
+	switch (document.getElementById('cir11-var').value) {
+		case "1":
+		
+			break;
+		default:
+	}	
+};
+show_cir[11] = function() {
+	switch (document.getElementById('cir11-var').value) {
+		case "1":
+		
+			break;
+		default:
+	}	
+};
+
+//number system conversions
+convert_DECtoBIN = function(dec) {
+	var bin = parseInt(dec).toString(2);
+	while (bin.length%4 > 0) {
+		bin = '0' + bin;
+	}
+    return bin;
+};
+convert_BINtoDEC = function(bin) {
+	var dec = parseInt(bin, 2);
+	return dec;
+};
+convert_DECtoOCT = function(dec) {
+	var oct = parseInt(dec).toString(8);
+    return oct;
+};
+convert_OCTtoDEC = function(oct) {
+	var dec = parseInt(oct, 8);
+	return dec;
+};
+convert_DECtoHEX = function(dec) {
+	var hex = parseInt(dec).toString(16);
+    return hex;
+};
+convert_HEXtoDEC = function(hex) {
+	var dec = parseInt(hex, 16);
+	return dec;
+};
+
+
+generate_cir[12] = function() {
+	switch (document.getElementById('cir12-var').value) {
+		case "1":
+			document.getElementById('cir12-BIN-num').value = convert_DECtoBIN(randomWholeNumber(0, 255));
+            document.getElementById('cir12-BIN').innerHTML = document.getElementById('cir12-BIN-num').value.toString().replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+			break;
+		case "2":
+			document.getElementById('cir12-DEC-num').value = randomWholeNumber(0, 255);
+            document.getElementById('cir12-DEC').innerHTML = document.getElementById('cir12-DEC-num').value.toString();
+			break;
+		case "3":
+			document.getElementById('cir12-BIN-num').value = convert_DECtoBIN(randomWholeNumber(0, 999999));
+            document.getElementById('cir12-BIN').innerHTML = document.getElementById('cir12-BIN-num').value.toString().replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+			break;
+		case "4":
+			document.getElementById('cir12-HEX-num').value = convert_DECtoHEX(randomWholeNumber(0, 999999));
+            document.getElementById('cir12-HEX').innerHTML = document.getElementById('cir12-HEX-num').value.toString().toUpperCase();
+			break;
+		default:
+	}
+};
+check_cir[12] = function() {
+	switch (document.getElementById('cir12-var').value) {
+		case "1":
+            if (convert_BINtoDEC(document.getElementById('cir12-BIN-num').value) == document.getElementById('cir12-DEC-num').value) {
+                document.getElementById('cir12-DEC').classList.remove('alert');
+                document.getElementById('cir12-DEC').classList.add('success');
+			}
+            else {
+                document.getElementById('cir12-DEC').classList.remove('success');
+                document.getElementById('cir12-DEC').classList.add('alert');
+            }
+			break;
+		case "2":
+            if (convert_BINtoDEC(document.getElementById('cir12-BIN-num').value) == document.getElementById('cir12-DEC-num').value) {
+                document.getElementById('cir12-BIN').classList.remove('alert');
+                document.getElementById('cir12-BIN').classList.add('success');
+			}
+            else {
+                document.getElementById('cir12-BIN').classList.remove('success');
+                document.getElementById('cir12-BIN').classList.add('alert');
+            }
+			break;
+		case "3":
+            if (convert_BINtoDEC(document.getElementById('cir12-BIN-num').value) == convert_HEXtoDEC(document.getElementById('cir12-HEX-num').value)) {
+                document.getElementById('cir12-HEX').classList.remove('alert');
+                document.getElementById('cir12-HEX').classList.add('success');
+			}
+            else {
+                document.getElementById('cir12-HEX').classList.remove('success');
+                document.getElementById('cir12-HEX').classList.add('alert');
+            }
+			break;
+		case "4":
+            if (convert_BINtoDEC(document.getElementById('cir12-BIN-num').value) == convert_HEXtoDEC(document.getElementById('cir12-HEX-num').value)) {
+                document.getElementById('cir12-BIN').classList.remove('alert');
+                document.getElementById('cir12-BIN').classList.add('success');
+			}
+            else {
+                document.getElementById('cir12-BIN').classList.remove('success');
+                document.getElementById('cir12-BIN').classList.add('alert');
+            }
+			break;
+		default:
+	}	
+};
+show_cir[12] = function() {
+	switch (document.getElementById('cir12-var').value) {
+		case "1":
+            document.getElementById('cir12-DEC-num').value = convert_BINtoDEC(document.getElementById('cir12-BIN-num').value);
+            document.getElementById('cir12-DEC').classList.remove('alert');
+            document.getElementById('cir12-DEC').classList.remove('success');
+            document.getElementById('cir12-DEC').classList.add('info');
+            document.getElementById('cir12-DEC-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "2":
+            document.getElementById('cir12-BIN-num').value = convert_DECtoBIN(document.getElementById('cir12-DEC-num').value).toString().replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+            document.getElementById('cir12-BIN').classList.remove('alert');
+            document.getElementById('cir12-BIN').classList.remove('success');
+            document.getElementById('cir12-BIN').classList.add('info');
+            document.getElementById('cir12-BIN-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "3":
+            document.getElementById('cir12-HEX-num').value = convert_DECtoHEX(convert_BINtoDEC(document.getElementById('cir12-BIN-num').value)).toString().toUpperCase();
+            document.getElementById('cir12-HEX').classList.remove('alert');
+            document.getElementById('cir12-HEX').classList.remove('success');
+            document.getElementById('cir12-HEX').classList.add('info');
+            document.getElementById('cir12-HEX-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "4":
+            document.getElementById('cir12-BIN-num').value = convert_DECtoBIN(convert_HEXtoDEC(document.getElementById('cir12-HEX-num').value)).toString().replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+            document.getElementById('cir12-BIN').classList.remove('alert');
+            document.getElementById('cir12-BIN').classList.remove('success');
+            document.getElementById('cir12-BIN').classList.add('info');
+            document.getElementById('cir12-BIN-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		default:
+	}	
+};
+
+generate_cir[13] = function() {
+	switch (document.getElementById('cir13-var').value) {
+		case "1":
+			document.getElementById('cir13-OCT-num').value = convert_DECtoOCT(randomWholeNumber(0, 255));
+            document.getElementById('cir13-OCT').innerHTML = document.getElementById('cir13-OCT-num').value.toString();
+			break;
+		case "2":
+			document.getElementById('cir13-DEC-num').value = randomWholeNumber(0, 255);
+            document.getElementById('cir13-DEC').innerHTML = document.getElementById('cir13-DEC-num').value.toString();
+			break;
+		default:
+	}
+};
+check_cir[13] = function() {
+	switch (document.getElementById('cir13-var').value) {
+		case "1":
+            if (convert_OCTtoDEC(document.getElementById('cir13-OCT-num').value) == document.getElementById('cir13-DEC-num').value) {
+                document.getElementById('cir13-DEC').classList.remove('alert');
+                document.getElementById('cir13-DEC').classList.add('success');
+			}
+            else {
+                document.getElementById('cir13-DEC').classList.remove('success');
+                document.getElementById('cir13-DEC').classList.add('alert');
+            }
+			break;
+		case "2":
+            if (convert_OCTtoDEC(document.getElementById('cir13-OCT-num').value) == document.getElementById('cir13-DEC-num').value) {
+                document.getElementById('cir13-OCT').classList.remove('alert');
+                document.getElementById('cir13-OCT').classList.add('success');
+			}
+            else {
+                document.getElementById('cir13-OCT').classList.remove('success');
+                document.getElementById('cir13-OCT').classList.add('alert');
+            }
+			break;
+		default:
+	}	
+};
+show_cir[13] = function() {
+	switch (document.getElementById('cir13-var').value) {
+		case "1":
+            document.getElementById('cir13-DEC-num').value = convert_OCTtoDEC(document.getElementById('cir13-OCT-num').value);
+            document.getElementById('cir13-DEC').classList.remove('alert');
+            document.getElementById('cir13-DEC').classList.remove('success');
+            document.getElementById('cir13-DEC').classList.add('info');
+            document.getElementById('cir13-DEC-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "2":
+            document.getElementById('cir13-OCT-num').value = convert_DECtoOCT(document.getElementById('cir13-DEC-num').value).toString();
+            document.getElementById('cir13-OCT').classList.remove('alert');
+            document.getElementById('cir13-OCT').classList.remove('success');
+            document.getElementById('cir13-OCT').classList.add('info');
+            document.getElementById('cir13-OCT-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		default:
+	}	
+};
+
+generate_cir[14] = function() {
+	switch (document.getElementById('cir14-var').value) {
+		case "1":
+			document.getElementById('cir14-HEX-num').value = convert_DECtoHEX(randomWholeNumber(0, 255));
+            document.getElementById('cir14-HEX').innerHTML = document.getElementById('cir14-HEX-num').value.toString().toUpperCase();
+			break;
+		case "2":
+			document.getElementById('cir14-DEC-num').value = randomWholeNumber(0, 255);
+            document.getElementById('cir14-DEC').innerHTML = document.getElementById('cir14-DEC-num').value.toString();
+			break;
+		case "3":
+			document.getElementById('cir14-BIN-num').value = convert_DECtoBIN(randomWholeNumber(0, 999999));
+            document.getElementById('cir14-BIN').innerHTML = document.getElementById('cir14-BIN-num').value.toString().replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+			break;
+		case "4":
+			document.getElementById('cir14-HEX-num').value = convert_DECtoHEX(randomWholeNumber(0, 999999));
+            document.getElementById('cir14-HEX').innerHTML = document.getElementById('cir14-HEX-num').value.toString().toUpperCase();
+			break;
+		default:
+	}
+};
+check_cir[14] = function() {
+	switch (document.getElementById('cir14-var').value) {
+		case "1":
+            if (convert_HEXtoDEC(document.getElementById('cir14-HEX-num').value) == document.getElementById('cir14-DEC-num').value) {
+                document.getElementById('cir14-DEC').classList.remove('alert');
+                document.getElementById('cir14-DEC').classList.add('success');
+			}
+            else {
+                document.getElementById('cir14-DEC').classList.remove('success');
+                document.getElementById('cir14-DEC').classList.add('alert');
+            }
+			break;
+		case "2":
+            if (convert_HEXtoDEC(document.getElementById('cir14-HEX-num').value) == document.getElementById('cir14-DEC-num').value) {
+                document.getElementById('cir14-HEX').classList.remove('alert');
+                document.getElementById('cir14-HEX').classList.add('success');
+			}
+            else {
+                document.getElementById('cir14-HEX').classList.remove('success');
+                document.getElementById('cir14-HEX').classList.add('alert');
+            }
+			break;
+		case "3":
+            if (convert_BINtoDEC(document.getElementById('cir14-BIN-num').value) == convert_HEXtoDEC(document.getElementById('cir14-HEX-num').value)) {
+                document.getElementById('cir14-HEX').classList.remove('alert');
+                document.getElementById('cir14-HEX').classList.add('success');
+			}
+            else {
+                document.getElementById('cir14-HEX').classList.remove('success');
+                document.getElementById('cir14-HEX').classList.add('alert');
+            }
+			break;
+		case "4":
+            if (convert_BINtoDEC(document.getElementById('cir14-BIN-num').value) == convert_HEXtoDEC(document.getElementById('cir14-HEX-num').value)) {
+                document.getElementById('cir14-BIN').classList.remove('alert');
+                document.getElementById('cir14-BIN').classList.add('success');
+			}
+            else {
+                document.getElementById('cir14-BIN').classList.remove('success');
+                document.getElementById('cir14-BIN').classList.add('alert');
+            }
+			break;
+		default:
+	}	
+};
+show_cir[14] = function() {
+	switch (document.getElementById('cir14-var').value) {
+		case "1":
+            document.getElementById('cir14-DEC-num').value = convert_HEXtoDEC(document.getElementById('cir14-HEX-num').value);
+            document.getElementById('cir14-DEC').classList.remove('alert');
+            document.getElementById('cir14-DEC').classList.remove('success');
+            document.getElementById('cir14-DEC').classList.add('info');
+            document.getElementById('cir14-DEC-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "2":
+            document.getElementById('cir14-HEX-num').value = convert_DECtoHEX(document.getElementById('cir14-DEC-num').value).toString().toUpperCase();
+            document.getElementById('cir14-HEX').classList.remove('alert');
+            document.getElementById('cir14-HEX').classList.remove('success');
+            document.getElementById('cir14-HEX').classList.add('info');
+            document.getElementById('cir14-HEX-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "3":
+            document.getElementById('cir14-HEX-num').value = convert_DECtoHEX(convert_BINtoDEC(document.getElementById('cir14-BIN-num').value)).toString().toUpperCase();
+            document.getElementById('cir14-HEX').classList.remove('alert');
+            document.getElementById('cir14-HEX').classList.remove('success');
+            document.getElementById('cir14-HEX').classList.add('info');
+            document.getElementById('cir14-HEX-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		case "4":
+            document.getElementById('cir14-BIN-num').value = convert_DECtoBIN(convert_HEXtoDEC(document.getElementById('cir14-HEX-num').value)).toString().replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'');
+            document.getElementById('cir14-BIN').classList.remove('alert');
+            document.getElementById('cir14-BIN').classList.remove('success');
+            document.getElementById('cir14-BIN').classList.add('info');
+            document.getElementById('cir14-BIN-num').disabled = true;
+            document.getElementById('check_but').disabled = true;
+            break;
+		default:
+	}	
 };
